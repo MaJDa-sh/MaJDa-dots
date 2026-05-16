@@ -1,0 +1,118 @@
+local map = vim.keymap.set
+
+map("i", "<C-b>", "<ESC>^i", { desc = "Beginning of line" })
+map("i", "<C-e>", "<End>", { desc = "End of line" })
+map("i", "<C-h>", "<Left>", { desc = "Move left" })
+map("i", "<C-l>", "<Right>", { desc = "Move right" })
+map("i", "<C-j>", "<Down>", { desc = "Move down" })
+map("i", "<C-k>", "<Up>", { desc = "Move up" })
+
+map("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Clear highlights" })
+map("n", "<C-s>", "<cmd>w<cr>", { desc = "Save file" })
+map("n", "<C-c>", "<cmd>%y+<cr>", { desc = "Copy whole file" })
+map("n", "<leader>n", "<cmd>set nu!<cr>", { desc = "Toggle line number" })
+map("n", "<leader>rn", "<cmd>set rnu!<cr>", { desc = "Toggle relative number" })
+map("n", "<leader>b", "<cmd>enew<cr>", { desc = "New buffer" })
+map("n", "<leader>ch", "<cmd>WhichKey<cr>", { desc = "Mapping cheatsheet" })
+map("n", "<leader>fm", function()
+  local ok, conform = pcall(require, "conform")
+  if ok then
+    conform.format({
+      async = true,
+      lsp_format = "fallback",
+      timeout_ms = 3000,
+    })
+    return
+  end
+  vim.lsp.buf.format({ async = true })
+end, { desc = "LSP formatting" })
+map("n", "<leader>wK", "<cmd>WhichKey<cr>", { desc = "Which-key all keymaps" })
+map("n", "<leader>wk", function()
+  local input = vim.fn.input("WhichKey: ")
+  vim.cmd("WhichKey " .. input)
+end, { desc = "Which-key query lookup" })
+
+map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Goto next buffer" })
+map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Goto prev buffer" })
+map("n", "<leader>x", "<cmd>bdelete<cr>", { desc = "Close buffer" })
+
+map("n", "<C-h>", "<C-w>h", { desc = "Window left" })
+map("n", "<C-j>", "<C-w>j", { desc = "Window down" })
+map("n", "<C-k>", "<C-w>k", { desc = "Window up" })
+map("n", "<C-l>", "<C-w>l", { desc = "Window right" })
+
+map("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle nvimtree" })
+map("n", "<leader>e", "<cmd>NvimTreeFocus<cr>", { desc = "Focus nvimtree" })
+map("n", "<leader>u", "<cmd>UndotreeToggle<cr>", { desc = "Toggle undo tree" })
+map("n", "<leader>gs", "<cmd>Git<cr>", { desc = "Git status (fugitive)" })
+map("n", "<leader>gD", "<cmd>Gdiffsplit<cr>", { desc = "Git diff split (fugitive)" })
+map("n", "<leader>gB", "<cmd>Git blame<cr>", { desc = "Git blame (fugitive)" })
+map("n", "<leader>gS", "<cmd>Git blame --root<cr>", { desc = "Git blame full file (fugitive)" })
+map("n", "<leader>gC", "<cmd>Git commit<cr>", { desc = "Git commit (fugitive)" })
+map("n", "<leader>gl", "<cmd>Git log<cr>", { desc = "Git log (fugitive)" })
+map("n", "<leader>gL", "<cmd>Gclog<cr>", { desc = "Git log for file (fugitive)" })
+map("n", "<leader>gP", "<cmd>Gdiffsplit HEAD~1<cr>", { desc = "Diff vs previous commit (fugitive)" })
+map("n", "<leader>gH", "<cmd>Gvdiffsplit HEAD<cr>", { desc = "Diff vs HEAD (fugitive)" })
+map("n", "<leader>gk", "<cmd>Telescope git_commits<cr>", { desc = "Commit picker (repo)" })
+map("n", "<leader>gf", "<cmd>Telescope git_bcommits<cr>", { desc = "Commit picker (file)" })
+map("n", "<leader>cm", "<cmd>Telescope git_commits<cr>", { desc = "Git commits" })
+map("n", "<leader>gt", "<cmd>Telescope git_status<cr>", { desc = "Git status" })
+
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
+map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>", { desc = "Find all" })
+map("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
+map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help page" })
+map("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>", { desc = "Find oldfiles" })
+map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find in current buffer" })
+map("n", "<leader>pt", function()
+  local ok = pcall(vim.cmd, "Telescope terms")
+  if not ok then
+    vim.cmd("Telescope buffers")
+  end
+end, { desc = "Pick hidden term" })
+map("n", "<leader>th", "<cmd>Telescope themes<cr>", { desc = "Nvchad themes" })
+map("n", "<leader>ma", "<cmd>Telescope marks<cr>", { desc = "telescope bookmarks" })
+
+map("n", "gd", vim.lsp.buf.definition, { desc = "LSP definition" })
+map("n", "gD", vim.lsp.buf.declaration, { desc = "LSP declaration" })
+map("n", "gi", vim.lsp.buf.implementation, { desc = "LSP implementation" })
+map("n", "gr", vim.lsp.buf.references, { desc = "LSP references" })
+map("n", "K", vim.lsp.buf.hover, { desc = "LSP hover" })
+map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
+
+map("n", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true, desc = "Move down" })
+map("n", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true, desc = "Move up" })
+map("n", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true, desc = "Move up" })
+map("n", "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true, desc = "Move down" })
+
+map("v", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true, desc = "Move up" })
+map("v", "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true, desc = "Move down" })
+map("v", "<", "<gv", { desc = "Indent line" })
+map("v", ">", ">gv", { desc = "Indent line" })
+
+map("x", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true, desc = "Move down" })
+map("x", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true, desc = "Move up" })
+map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { silent = true, desc = "Dont copy replaced text" })
+
+map("n", "<leader>/", function()
+  require("Comment.api").toggle.linewise.current()
+end, { desc = "Toggle comment" })
+map("v", "<leader>/", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { desc = "Toggle comment" })
+
+map("t", "<C-x>", [[<C-\><C-N>]], { desc = "Escape terminal mode" })
+map({ "n", "t" }, "<A-i>", function()
+  require("nvterm.terminal").toggle("float")
+end, { desc = "Toggle floating term" })
+map({ "n", "t" }, "<A-h>", function()
+  require("nvterm.terminal").toggle("horizontal")
+end, { desc = "Toggle horizontal term" })
+map({ "n", "t" }, "<A-v>", function()
+  require("nvterm.terminal").toggle("vertical")
+end, { desc = "Toggle vertical term" })
+map("n", "<leader>h", function()
+  require("nvterm.terminal").new("horizontal")
+end, { desc = "New horizontal term" })
+map("n", "<leader>v", function()
+  require("nvterm.terminal").new("vertical")
+end, { desc = "New vertical term" })

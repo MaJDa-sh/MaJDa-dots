@@ -1,0 +1,30 @@
+[global]
+font = JetBrainsMono Nerd Font 10
+frame_width = 2
+corner_radius = 8
+padding = 10
+horizontal_padding = 12
+
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#89b4fa"
+
+timeout = 5
+
+[urgency_low]
+background = "#1e1e2e"
+foreground = "#a6adc8"
+
+[urgency_normal]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_critical]
+background = "#f38ba8"
+foreground = "#1e1e2e"
+
+[slack]
+appname = Slack
+history_ignore = yes
+
+mouse_left_click = close_current
