@@ -19,7 +19,10 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 opt.cursorline = true
 opt.scrolloff = 8
 opt.sidescrolloff = 8
-opt.wrap = false
+opt.wrap = true
+opt.linebreak = true
+opt.breakindent = true
+opt.whichwrap:append("<>[]hl")
 opt.showtabline = 2
 opt.swapfile = false
 opt.undofile = true
