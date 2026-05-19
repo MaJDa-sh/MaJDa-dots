@@ -95,11 +95,6 @@ map("x", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true, des
 map("x", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true, desc = "Move up" })
 map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { silent = true, desc = "Dont copy replaced text" })
 
-map("n", "<leader>/", function()
-  require("Comment.api").toggle.linewise.current()
-end, { desc = "Toggle comment" })
-map("v", "<leader>/", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { desc = "Toggle comment" })
-
 map("t", "<C-x>", [[<C-\><C-N>]], { desc = "Escape terminal mode" })
 map({ "n", "t" }, "<A-i>", function()
   require("nvterm.terminal").toggle("float")
