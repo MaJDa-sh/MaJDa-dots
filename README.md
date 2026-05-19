@@ -1,26 +1,26 @@
-# minimal-docs
+# minimal-dots
 
 Minimal NixOS dotfiles with a focus on Vim-like motions and efficiency.
 
 ## Summary
 
-This configuration is designed for users who prefer keyboard-centric workflows. It uses **Hyprland** as the tiling window manager, **Neovim** as the primary editor, and **Fish** as the shell. Most navigation and system interactions follow the `hjkl` paradigm.
+This configuration is designed for users who prefer keyboard-centric workflows. It supports both **Hyprland** (modern, dynamic) and **Sway** (stable, lightweight) as tiling window managers. It uses **Neovim** as the primary editor and **Fish** as the shell. Most navigation and system interactions follow the `hjkl` paradigm.
 
 ## Important Applications
 
-- **Window Manager:** [Hyprland](https://hyprland.org/)
+- **Window Managers:** [Hyprland](https://hyprland.org/) or [Sway](https://swaywm.org/)
 - **Terminal:** [Foot](https://codeberg.org/dnkl/foot)
 - **Shell:** [Fish](https://fishshell.com/)
 - **Editor:** [Neovim](https://neovim.io/) (NvChad based)
 - **Application Launcher:** [Wofi](https://hg.sr.ht/~scoopta/wofi) / [Rofi](https://github.com/davatorium/rofi)
 - **Status Bar:** [Waybar](https://github.com/Alexays/Waybar)
 - **Notifications:** [Dunst](https://dunst-project.org/)
-- **Wallpaper:** [Hyprpaper](https://github.com/hyprwm/hyprpaper)
+- **Wallpaper:** [Hyprpaper](https://github.com/hyprwm/hyprpaper) (Hyprland) / Native (Sway)
 - **Screenshots:** [Grim](https://sr.ht/~emersion/grim/) & [Slurp](https://sr.ht/~emersion/slurp/)
 
 ## Key Bindings
 
-The `SUPER` (Windows) key is the main modifier (`$mainMod`).
+The `SUPER` (Windows) key is the main modifier (`$mod`).
 
 ### System
 
@@ -30,7 +30,7 @@ The `SUPER` (Windows) key is the main modifier (`$mainMod`).
 - `SUPER + W`: Open Browser (Firefox)
 - `SUPER + C`: Open Slack
 - `SUPER + V`: Toggle Floating window
-- `SUPER + D`: Toggle Fullscreen
+- `SUPER + D`: Toggle Fullscreen / Tabbed layout
 
 ### Navigation (Vim-like)
 
@@ -56,14 +56,17 @@ chmod +x install.sh
 
 **Note:** The script will:
 
-1. Copy wallpapers to `~/Pictures`.
-2. Install configurations (`dunst`, `fish`, `foot`, `hypr`, `nvim`, `waybar`) to `~/.config/`.
-3. Backup existing configurations with a `.bak` suffix.
-4. Copy NixOS configuration to `/etc/nixos` (requires `sudo`).
+1. Prompt you to choose between **Hyprland** and **Sway**.
+2. Copy wallpapers to `~/Pictures`.
+3. Install common configurations (`dunst`, `fish`, `foot`, `nvim`) to `~/.config/`.
+4. Install the selected WM's specific configuration.
+5. Setup **Waybar** for the selected environment.
+6. Backup existing configurations with a `.bak` suffix.
+7. Copy the appropriate NixOS configuration to `/etc/nixos` (requires `sudo`).
 
 ## Vim-like Motions
 
 This setup emphasizes `hjkl` for navigation across the entire system:
 
 - **Neovim:** Standard vim motions and custom mappings.
-- **Hyprland:** Focus and window movement using `SUPER + hjkl`.
+- **Window Manager:** Focus and window movement using `SUPER + hjkl`.
