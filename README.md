@@ -11,7 +11,7 @@ This configuration is designed for users who prefer keyboard-centric workflows. 
 - **Window Managers:** [Hyprland](https://hyprland.org/) or [Sway](https://swaywm.org/)
 - **Terminal:** [Foot](https://codeberg.org/dnkl/foot)
 - **Shell:** [Fish](https://fishshell.com/)
-- **Editor:** [Neovim](https://neovim.io/) (NvChad based)
+- **Editor:** [Neovim](https://neovim.io/) (Custom configuration)
 - **Application Launcher:** [Wofi](https://hg.sr.ht/~scoopta/wofi) / [Rofi](https://github.com/davatorium/rofi)
 - **Status Bar:** [Waybar](https://github.com/Alexays/Waybar)
 - **Notifications:** [Dunst](https://dunst-project.org/)
