@@ -17,7 +17,7 @@ output * bg ~/Pictures/wallpaper.jpg fill
 ### Input configuration
 input * {
     xkb_layout "pl"
-    natural_scroll enabled
+    natural_scroll disabled 
 }
 
 ### Key bindings
@@ -27,10 +27,7 @@ bindsym $mod+q kill
 bindsym $mod+e exec $fileManager
 bindsym $mod+v floating toggle
 bindsym $mod+r exec $menu
-# Maximize (mimics Hyprland's fullscreen, 1 - keeps bar visible)
 bindsym $mod+d layout toggle tabbed split
-# Real fullscreen (if needed)
-# bindsym $mod+Shift+d fullscreen toggle
 bindsym $mod+w exec firefox
 bindsym $mod+c exec slack
 
@@ -122,6 +119,9 @@ hide_edge_borders none
 gaps inner 4
 gaps outer 4
 
+# Cursor
+seat * xcursor_theme Bibata-Modern-Ice 24
+
 ### Multimedia keys
 bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
@@ -136,29 +136,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
 
 ### Bar
-bar {
-    swaybar_command swaybar
-    status_command $HOME/.config/sway/scripts/status.sh
-    position top
-    # Use a slightly larger font or height if supported, 
-    # but status_padding is the cleanest way for vertical space
-    font pango:JetBrainsMono Nerd Font 10
-    
-    # Vertical padding for the status line
-    status_padding 5
-    status_edge_padding 10
-    
-    colors {
-        statusline #f202be
-        background #00000000
-        # class             border  bg      text
-        focused_workspace  #fe85e4 #fe85e4 #f202be
-        active_workspace   #fe85e4 #fe85e4 #f202be
-        inactive_workspace #00000000 #00000000 #fec2f1
-        urgent_workspace   #eb4d4b #eb4d4b #ffffff
-        binding_mode       #fe85e4 #fe85e4 #f202be
-    }
-}
+exec_always dbus-launch --exit-with-session waybar
 
 ### Autostart
 exec dunst

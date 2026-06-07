@@ -10,7 +10,6 @@ window#waybar {
 /* WORKSPACES */
 #workspaces {
   padding: 0px 3px;
-  /* background: rgba(255, 255, 255, 0); */
   background: #feaeed;
   border-radius: 100px;
   margin: 2px 8px;
@@ -27,12 +26,16 @@ window#waybar {
   font-weight: 900;
 }
 
+#workspaces button.focused {
+  background: #fe85e4;
+  color: #f202be;
+  padding: 0px 25px;
+}
+
 #workspaces button.active {
   background: #fe85e4;
   padding: 0px 24px;
   color: #f202be;
-  /* box-shadow: inset 2px 2px 5px #bebebe, */
-  /*             inset -2px -2px 5px #ffffff; */
 }
 
 #workspaces button:hover {
@@ -51,6 +54,7 @@ window#waybar {
   padding: 0px 24px;
   color: #f202be;
   font-weight: 800;
+  transition: 0.1s;
 }
 
 .modules-right,
@@ -73,6 +77,7 @@ window#waybar {
   padding: 0px 24px;
   color: #f202be;
   font-weight: 800;
+  transition: 0.1s;
 }
 
 /* BATTERY STATES */
@@ -82,4 +87,13 @@ window#waybar {
 
 #battery.critical {
   color: #dc322f;
+}
+
+#pulseaudio:hover,
+#battery:hover,
+#clock:hover,
+#network:hover {
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
 }
