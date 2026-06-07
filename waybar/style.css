@@ -1,66 +1,81 @@
 * {
   font-family: "JetBrainsMono Nerd Font", sans-serif;
   font-size: 11px;
-  border: none;
-  border-radius: 0;
 }
 
 window#waybar {
-  background: transparent;
+  background: rgba(218, 196, 247, 0);
 }
 
-/* LEFT MODULES (Clock) */
-#clock {
-  padding: 0px 20px;
-  margin: 4px 8px;
-  background: #fe85e4;
-  color: #f202be;
-  border-radius: 100px;
-  font-weight: 800;
-}
-
-/* CENTER MODULES (Workspaces) */
+/* WORKSPACES */
 #workspaces {
-  margin: 4px 8px;
+  padding: 0px 3px;
+  /* background: rgba(255, 255, 255, 0); */
   background: #feaeed;
   border-radius: 100px;
-  padding: 0px 5px;
+  margin: 2px 8px;
 }
 
 #workspaces button {
-  padding: 0px 10px;
-  margin: 4px 2px;
-  border-radius: 100px;
-  color: #f202be;
+  padding: 0px 8px;
+  margin: 4px 3px;
+  border-radius: 60px;
+  border: none;
   background: #fec2f1;
-  transition: all 0.3s ease;
+  color: #fec2f1;
+  transition: 0.2s;
   font-weight: 900;
-  min-width: 20px;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   background: #fe85e4;
+  padding: 0px 24px;
   color: #f202be;
-  padding: 0px 25px;
+  /* box-shadow: inset 2px 2px 5px #bebebe, */
+  /*             inset -2px -2px 5px #ffffff; */
 }
 
 #workspaces button:hover {
   background: #fe85e4;
-  box-shadow: inherit;
-  text-shadow: inherit;
+  padding: 0px 24px;
+  color: #f202be;
+}
+
+/* CLOCK */
+#clock {
+  padding: 0px 8px;
+  margin: 4px 3px;
+  border-radius: 60px;
+  border: none;
+  background: #fe85e4;
+  padding: 0px 24px;
+  color: #f202be;
+  font-weight: 800;
+}
+
+.modules-right,
+.modules-left {
+  padding: 0px 3px;
+  background: #feaeed;
+  border-radius: 100px;
+  margin: 2px 8px;
 }
 
 /* RIGHT MODULES */
 #pulseaudio,
-#battery {
-  padding: 0px 20px;
-  margin: 4px 8px;
+#battery,
+#network {
+  padding: 0px 8px;
+  margin: 4px 3px;
+  border-radius: 60px;
+  border: none;
   background: #fe85e4;
+  padding: 0px 24px;
   color: #f202be;
-  border-radius: 100px;
   font-weight: 800;
 }
 
+/* BATTERY STATES */
 #battery.warning {
   color: #b58900;
 }

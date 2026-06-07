@@ -1,0 +1,1 @@
+-- nvim-parinfer has no setup() function
