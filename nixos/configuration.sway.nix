@@ -124,7 +124,7 @@ fonts = {
      slack
      unstable.devenv
      fastfetch
-     ripgrep
+     fzf
 
      claude-code
 
