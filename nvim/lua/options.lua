@@ -49,3 +49,8 @@ vim.opt.encoding = "utf-8"
 vim.opt.shortmess:append("c")                               -- avoid duplicate messages from completion
 
 vim.wo.fillchars = 'eob: '
+
+-- delay while using keybinds
+vim.o.timeout = true
+vim.o.timeoutlen = 200
+vim.o.ttimeoutlen = 10
