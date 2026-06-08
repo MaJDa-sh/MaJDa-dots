@@ -96,3 +96,8 @@ vim.keymap.set("n", "l", function()
     vim.cmd("normal! l")
   end
 end, { noremap = true, silent = true })
+
+-- hiding highlight search by using esc
+vim.api.nvim_set_keymap('i', '<Esc>', '<Esc>:nohlsearch<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<Esc>', '<Esc>:nohlsearch<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Esc>', ':nohlsearch<CR><Esc>', { noremap = true, silent = true })
