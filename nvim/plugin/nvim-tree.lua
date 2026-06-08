@@ -11,10 +11,37 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 require("nvim-tree").setup({
-  view = {
-    width = 40,
+  renderer = {
+    indent_markers = {
+      enable = true,
+    },
+    icons = {
+      glyphs = {
+        folder = {
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+          symlink_open = "",
+        },
+        git = {
+          unstaged = "+",
+          staged = "✓",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "★",
+          deleted = "-",
+          ignored = "◌",
+        },
+      },
+    },
   },
-
+  view = {
+    width = 35,
+    number = true,
+    relativenumber = true,
+  },
   update_focused_file = {
     enable = true,
     update_root = false,
