@@ -27,6 +27,7 @@ vim.pack.add({
   { src = "https://github.com/folke/trouble.nvim",                          name = "trouble.nvim" },
   { src = "https://github.com/sainnhe/sonokai",                             name = "sonokai" },
   { src = "https://github.com/windwp/nvim-ts-autotag",                      name = "nvim-ts-autotag" },
+  { src = "https://github.com/folke/which-key.nvim",                        name = "which-key.nvim" },
   { src = "https://github.com/adam12/ruby-lsp.nvim",                        name = "ruby-lsp.nvim" },
 }, {
   load = true,
