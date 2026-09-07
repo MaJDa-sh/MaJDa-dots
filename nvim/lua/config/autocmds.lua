@@ -1,5 +1,17 @@
 local augroup = vim.api.nvim_create_augroup("user_config", { clear = true })
 
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup,
+  pattern = { "ruby", "eruby" },
+  callback = function(args)
+    if vim.fn.exists("*GetRubyIndent") == 0 then
+      vim.b[args.buf].did_indent = nil
+      vim.cmd("runtime! indent/ruby.vim")
+    end
+    vim.bo[args.buf].indentexpr = "GetRubyIndent()"
+  end,
+})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup,
   callback = function()

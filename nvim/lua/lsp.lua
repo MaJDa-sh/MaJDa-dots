@@ -262,6 +262,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.rb", "*.erb" },
+  callback = function(args)
+    vim.lsp.buf.format({ bufnr = args.buf, name = "ruby_lsp", timeout_ms = 10000 })
+  end,
+})
+
 vim.lsp.enable({
   "clangd",
   "clojure_lsp",

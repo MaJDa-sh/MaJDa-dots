@@ -25,6 +25,7 @@ vim.pack.add({
   { src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim",      name = "tiny-inline-diagnostic.nvim" },
   { src = "https://github.com/folke/trouble.nvim",                          name = "trouble.nvim" },
   { src = "https://github.com/sainnhe/sonokai",                             name = "sonokai" },
+  { src = "https://github.com/adam12/ruby-lsp.nvim",                        name = "ruby-lsp.nvim" },
 }, {
   load = true,
 })
