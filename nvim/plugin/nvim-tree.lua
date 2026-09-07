@@ -11,6 +11,11 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 require("nvim-tree").setup({
+  git = {
+    enable = true,
+    ignore = false,
+    timeout = 500,
+  },
   renderer = {
     indent_markers = {
       enable = true,
