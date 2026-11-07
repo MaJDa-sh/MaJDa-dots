@@ -1,0 +1,6 @@
+require("options")
+require("mappings")
+require("functions")
+require("lsp")
+require("git")
+require("home")
